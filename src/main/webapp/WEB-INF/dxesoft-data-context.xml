@@ -16,7 +16,7 @@
     <jpa:repositories base-package="mx.com.oxsoftware.dxesoft.model.repositories"/>
 
     <context:annotation-config/>
-    <context:component-scan base-package="mx.com.oxsoftware.dxesoft.model.entities"/>
+    <context:component-scan base-package="mx.com.oxsoftware.dxesoft"/>
 
     <!--May needed to inject the entity manager into the factory bean-->
     <!--<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>-->
@@ -52,7 +52,7 @@
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
-        <property name="packagesToScan" value="mx.com.oxsoftware.dxesoft.model.repositories"/>
+        <property name="packagesToScan" value="mx.com.oxsoftware.dxesoft.model"/>
         <property name="jpaProperties">
             <value>
                 hibernate.cache.use_second_level_cache = true

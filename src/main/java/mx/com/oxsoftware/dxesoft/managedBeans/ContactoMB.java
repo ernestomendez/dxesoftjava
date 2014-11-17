@@ -43,6 +43,7 @@ public class ContactoMB {
     }
 
     public void addContact() {
+        contacto.setId(2L);
         contactoService.createContacto(contacto);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Contacto " + contacto.getPrimerNombre() + " agregado"));
     }
