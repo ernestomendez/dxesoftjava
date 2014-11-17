@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+    </h:head>
+    <h:body>
+        <!--<h1>Hello World PrimeFaces</h1>-->
+        <!--<hr></hr>-->
+        <!--<h:outputText value="Hello world"/>-->
+
+        <!--<p:editor value="Hello Primefaces"/>-->
+
+        <!--<h:outputText value="#{empBean.employee.firstName} #{empBean.employee.lastName}"/>-->
+
+        <!--<h:outputText value="Tons que"/>-->
+
+        <h:form>
+            <h:outputText value="Title"/>
+
+            <p:growl id="messages"></p:growl>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Primer Nombre: "/>
+                <p:inputText value="#{contactoMB.contacto.primerNombre}"/>
+                <p:outputLabel value="Segundo Nombre: "/>
+                <p:inputText value="#{contactoMB.contacto.segundoNombre}"/>
+                <p:outputLabel value="Apellido paterno: "/>
+                <p:inputText value="#{contactoMB.contacto.primerNombre}"/>
+                <p:outputLabel value="Apellido materno: "/>
+                <p:inputText value="#{contactoMB.contacto.segundoNombre}"/>
+                <p:outputLabel value="Pagina web: "/>
+                <p:inputText value="#{contactoMB.contacto.paginaWeb}"/>
+                <p:outputLabel value="Titulo: "/>
+                <p:inputText value="#{contactoMB.contacto.titulo}"/>
+                <p:outputLabel value="RFC: "/>
+                <p:inputText value="#{contactoMB.contacto.rfc}"/>
+            </p:panelGrid>
+
+            <p:commandButton value="Registrar" action="#{contactoMB.addContact}" update="messages"/>
+        </h:form>
+
+    </h:body>
+</html>

@@ -1,0 +1,22 @@
+<configuration>
+    <!--<appender name="FILE" class="ch.qos.logback.core.FileAppender">-->
+    <!--<file>Myfile.log</file>-->
+    <!--<encoder>-->
+    <!--<pattern>%date %level %logger - %msg%n</pattern>-->
+    <!--</encoder>-->
+    <!--</appender>-->
+    <appender name="STOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%level]%n%caller{3}          - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--<root level="info">
+        <appender-ref ref="FILE"/>
+    </root>-->
+
+    <root level="debug">
+        <appender-ref ref="STOUT"/>
+    </root>
+
+</configuration>
