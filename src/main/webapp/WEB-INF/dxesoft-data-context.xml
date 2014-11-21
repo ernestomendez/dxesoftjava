@@ -16,13 +16,14 @@
     <jpa:repositories base-package="mx.com.oxsoftware.dxesoft.model.repositories"/>
 
     <context:annotation-config/>
-    <context:component-scan base-package="mx.com.oxsoftware.dxesoft"/>
+    <context:component-scan base-package="mx.com.oxsoftware.dxesoft.model"/>
 
     <!--May needed to inject the entity manager into the factory bean-->
     <!--<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>-->
 
+    <!--To configure the hikari needs to use dataSourceClassName or jdbcUrl but never both-->
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-        <property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+        <!--<property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />-->
         <property name="connectionTestQuery" value="SELECT 1" />
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/dxesoft"/>
         <property name="username" value="dxeuser"/>

@@ -8,7 +8,8 @@
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <script name="jquery/jquery.js" library="primefaces"></script>
+        <!--<script name="jquery/jquery.js" library="primefaces"/>-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </h:head>
     <h:body>
         <!--<h1>Hello World PrimeFaces</h1>-->
@@ -22,27 +23,29 @@
         <!--<h:outputText value="Tons que"/>-->
 
         <h:form>
-            <h:outputText value="Title"/>
+            <h:outputFormat value="#{contact_msg['contact.register']}">
+                <f:param value="#{contact_msg['contact']}"/>
+            </h:outputFormat>
 
             <p:growl id="messages"></p:growl>
             <p:panelGrid columns="2">
-                <p:outputLabel value="Primer Nombre: "/>
+                <p:outputLabel value="#{contact_msg['contact.primer.nombre']}: "/>
                 <p:inputText value="#{contactoMB.contacto.primerNombre}"/>
-                <p:outputLabel value="Segundo Nombre: "/>
+                <p:outputLabel value="#{contact_msg['contact.segundo.nombre']}: "/>
                 <p:inputText value="#{contactoMB.contacto.segundoNombre}"/>
-                <p:outputLabel value="Apellido paterno: "/>
-                <p:inputText value="#{contactoMB.contacto.primerNombre}"/>
-                <p:outputLabel value="Apellido materno: "/>
-                <p:inputText value="#{contactoMB.contacto.segundoNombre}"/>
-                <p:outputLabel value="Pagina web: "/>
+                <p:outputLabel value="#{contact_msg['contact.apellido.paterno']}: "/>
+                <p:inputText value="#{contactoMB.contacto.apellidoPaterno}"/>
+                <p:outputLabel value="#{contact_msg['contact.apellido.materno']}: "/>
+                <p:inputText value="#{contactoMB.contacto.apellidoMaterno}"/>
+                <p:outputLabel value="#{contact_msg['contact.webpage']}: "/>
                 <p:inputText value="#{contactoMB.contacto.paginaWeb}"/>
-                <p:outputLabel value="Titulo: "/>
+                <p:outputLabel value="#{contact_msg['contact.titulo']}: "/>
                 <p:inputText value="#{contactoMB.contacto.titulo}"/>
-                <p:outputLabel value="RFC: "/>
+                <p:outputLabel value="#{contact_msg['contact.RFC']}: "/>
                 <p:inputText value="#{contactoMB.contacto.rfc}"/>
             </p:panelGrid>
 
-            <p:commandButton value="Registrar" action="#{contactoMB.addContact}" update="messages"/>
+            <p:commandButton value="#{dxesoft_msg['dxesoft.add']}" action="#{contactoMB.addContact}" update="messages"/>
         </h:form>
 
     </h:body>

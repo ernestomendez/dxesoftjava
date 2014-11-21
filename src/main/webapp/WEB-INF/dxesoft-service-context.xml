@@ -8,6 +8,6 @@
                            http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 
     <context:annotation-config/>
-    <context:component-scan base-package="mx.com.oxsoftware.dxesoft"/>
+    <context:component-scan base-package="mx.com.oxsoftware.dxesoft.service"/>
 
 </beans>

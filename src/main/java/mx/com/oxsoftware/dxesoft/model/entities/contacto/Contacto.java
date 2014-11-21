@@ -34,9 +34,9 @@ public class Contacto {
     @Column(length = 50)
     private String titulo;
 
-    @Column
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+//    @Column
+//    @Enumerated(EnumType.STRING)
+//    private Gender gender;
 
     @Column
     private String paginaWeb;
@@ -100,13 +100,13 @@ public class Contacto {
         this.titulo = titulo;
     }
 
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
+//    public Gender getGender() {
+//        return gender;
+//    }
+//
+//    public void setGender(Gender gender) {
+//        this.gender = gender;
+//    }
 
     public String getPaginaWeb() {
         return paginaWeb;

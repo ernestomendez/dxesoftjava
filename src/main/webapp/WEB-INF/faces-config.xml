@@ -6,6 +6,23 @@
 
     <application>
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+
+        <locale-config>
+            <default-locale>es_MX</default-locale>
+            <!--<supported-locale>en_US</supported-locale>-->
+        </locale-config>
+        <resource-bundle>
+            <base-name>dxesoft_messages</base-name>
+            <var>dxesoft_msg</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>contact_messages</base-name>
+            <var>contact_msg</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>error_messages</base-name>
+            <var>error_msg</var>
+        </resource-bundle>
     </application>
   
 </faces-config>
