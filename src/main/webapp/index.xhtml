@@ -7,11 +7,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-    <h:head>
-        <!--<script name="jquery/jquery.js" library="primefaces"/>-->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    </h:head>
-    <h:body>
+    <!--<h:head>-->
+        <!--&lt;!&ndash;<script name="jquery/jquery.js" library="primefaces"/>&ndash;&gt;-->
+        <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <!--</h:head>-->
+    <ui:composition template="layout/master_layout.xhtml">
+    <ui:define name="dxesoft_content">
+    <!--<h:body>-->
         <!--<h1>Hello World PrimeFaces</h1>-->
         <!--<hr></hr>-->
         <!--<h:outputText value="Hello world"/>-->
@@ -48,5 +50,7 @@
             <p:commandButton value="#{dxesoft_msg['dxesoft.add']}" action="#{contactoMB.addContact}" update="messages"/>
         </h:form>
 
-    </h:body>
+    <!--</h:body>-->
+    </ui:define>
+    </ui:composition>
 </html>
