@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Dxesoft</title>
+        <h:outputStylesheet library="css" name="global.css"/>
+    </h:head>
+
+    <h:body>
+        <p:layout fullPage="true" resizeTitle="resize">
+            <p:layoutUnit position="north" size="100">
+                <!--<ui:insert name="header">-->
+                    <ui:include src="/general/header.xhtml"/>
+                <!--</ui:insert>-->
+            </p:layoutUnit>
+            <p:layoutUnit position="west" size="200">
+                <h:form>
+                <p:menu>
+                    <p:submenu label="Contactos">
+                        <p:menuitem value="Agregar contacto" outcome="/pages/contacto/addContact.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="dxesoft_content">
+                <h:outputText value="center contento"/>
+                </ui:insert>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="50">
+
+                    <h:outputText value="south content"/>
+
+            </p:layoutUnit>
+
+
+        </p:layout>
+    </h:body>
+</html>
