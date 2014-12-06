@@ -1,6 +1,5 @@
 package mx.com.oxsoftware.dxesoft.model.entities.contacto;
 
-import mx.com.oxsoftware.dxesoft.utils.Gender;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
@@ -19,11 +18,8 @@ public class Contacto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 60)
-    private String primerNombre;
-
-    @Column(length = 100)
-    private String segundoNombre;
+    @Column(length = 200)
+    private String nombres;
 
     @Column(length = 60)
     private String apellidoPaterno;
@@ -60,20 +56,12 @@ public class Contacto {
         this.id = id;
     }
 
-    public String getPrimerNombre() {
-        return primerNombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setPrimerNombre(String primerNombre) {
-        this.primerNombre = primerNombre;
-    }
-
-    public String getSegundoNombre() {
-        return segundoNombre;
-    }
-
-    public void setSegundoNombre(String segundoNombre) {
-        this.segundoNombre = segundoNombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellidoPaterno() {

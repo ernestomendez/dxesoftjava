@@ -12,12 +12,60 @@
     <ui:composition template="/layout/dxesoft_layout.xhtml">
         <ui:define name="dxesoft_content">
             <h:form>
-                <div style="display: inline-block; background: darkred">
-                    <h:outputFormat value="#{contact_msg['contact.register']}">
-                        <f:param value="#{contact_msg['contact']}"/>
-                    </h:outputFormat>
+                <div class="ContentSideSections">
+                    <div class="Content100 overHidden TextShadow">
+                        <span class="fontSize30 TextShadow titleColor mediumFont marginBottom20 dispBlock">
+                            <h:outputFormat value="#{contact_msg['contact.register']}">
+                                <f:param value="#{contact_msg['contact']}"/>
+                            </h:outputFormat>
+                        </span>
+                    </div>
                 </div>
-                jsdjasdkadsjkf
+                <div class="ContentSideForm">
+                    <p:growl id="messages"/>
+                    <p:panelGrid columns="1" layout="grid" >
+                        <p:outputLabel value="#{contact_msg['contact.nombre']} "/>
+                        <p:inputText id="it_contacto_nombres" value="#{contactoMB.contacto.nombres}" />
+                        <p:watermark value="#{contact_msg['contact.nombres']} " for="it_contacto_nombres"/>
+                        <p:panelGrid columns="4" layout="grid">
+                            <p:inputText id="it_contact_paterno" value="#{contactoMB.contacto.apellidoPaterno}"/>
+                            <p:watermark value="#{contact_msg['contact.apellido.paterno']}" for="it_contact_paterno"/>
+                            <p:inputText id="it_contact_materno" value="#{contactoMB.contacto.apellidoMaterno}"/>
+                            <p:watermark value="#{contact_msg['contact.apellido.materno']}" for="it_contact_materno"/>
+
+                        </p:panelGrid>
+                    </p:panelGrid>
+                    <!--<div class="ui-grid ui-grid-responsive">-->
+                    <!--<div class="ui-grid ui-grid-fixed">-->
+                    <div class="ui-grid ui-grid-fixed ui-grid-responsive">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-5">
+                                <p:outputLabel value="#{contact_msg['contact.nombre']}" style="width: 200px"/>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-5">
+                                <p:inputText id="contacto_nombres" value="#{contactoMB.contacto.nombres}" />
+                                <p:watermark value="#{contact_msg['contact.nombres']} " for="contacto_nombres"/>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-panelgrid-cell ui-grid-col-5"></div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                <p:inputText id="contact_paterno" value="#{contactoMB.contacto.apellidoPaterno}"/>
+                                <p:watermark value="#{contact_msg['contact.apellido.paterno']}" for="contact_paterno"/>
+                            </div>
+                            <div class="ui-grid-col-1">
+                            </div>
+                            <div class="ui-grid-col-2">
+                                <p:inputText id="contact_materno" value="#{contactoMB.contacto.apellidoMaterno}"/>
+                                <p:watermark value="#{contact_msg['contact.apellido.materno']}" for="contact_materno"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

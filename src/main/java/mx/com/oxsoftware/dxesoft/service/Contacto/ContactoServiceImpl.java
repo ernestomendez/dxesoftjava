@@ -18,7 +18,7 @@ public class ContactoServiceImpl implements ContactoService {
     private static final Logger LOGGER = LoggerFactory.getLogger(ContactoServiceImpl.class);
 
     @Autowired
-    ContactoRepository contactoRepository;
+    private ContactoRepository contactoRepository;
 
     @Override
     @Transactional

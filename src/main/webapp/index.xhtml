@@ -18,9 +18,7 @@
             <p:growl id="messages"></p:growl>
             <p:panelGrid columns="2">
                 <p:outputLabel value="#{contact_msg['contact.primer.nombre']}: "/>
-                <p:inputText value="#{contactoMB.contacto.primerNombre}"/>
-                <p:outputLabel value="#{contact_msg['contact.segundo.nombre']}: "/>
-                <p:inputText value="#{contactoMB.contacto.segundoNombre}"/>
+                <p:inputText value="#{contactoMB.contacto.nombres}"/>
                 <p:outputLabel value="#{contact_msg['contact.apellido.paterno']}: "/>
                 <p:inputText value="#{contactoMB.contacto.apellidoPaterno}"/>
                 <p:outputLabel value="#{contact_msg['contact.apellido.materno']}: "/>

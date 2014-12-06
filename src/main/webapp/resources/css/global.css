@@ -2,3 +2,47 @@
     color: #fca752;
     font-size: 40px;
 }
+
+
+.ContentSideSections {
+    border-bottom: 1px solid #bcc7cf;
+    display: block;
+    padding: 20px 30px 5px 30px;
+}
+
+.Content100 {
+    width: 100%;
+}
+.overHidden {
+    overflow: hidden;
+}
+.TextShadow {
+    text-shadow: 0 1px 0 #595959;
+}
+
+.orange {
+    color: #fca752;
+}
+
+.titleColor{
+    color: #869586;
+}
+
+.dispBlock {
+    display: block;
+}
+.mediumFont {
+    font-family: "exomedium","Trebuchet MS",Arial,Helvetica,sans-serif;
+}
+.marginBottom20 {
+    margin-bottom: 20px;
+}
+.fontSize30 {
+    font-size: 30px;
+}
+
+.ContentSideForm {
+    border-bottom: 1px solid #bcc7cf;
+    display: block;
+    padding: 30px;
+}

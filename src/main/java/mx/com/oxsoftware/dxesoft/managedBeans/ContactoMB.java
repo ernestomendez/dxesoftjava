@@ -58,7 +58,7 @@ public class ContactoMB {
         String message = resourceBundle.getString("contact.added.sucess");
 
         MessageFormat messageFormat = new MessageFormat(message);
-        Object params[] = {contacto.getPrimerNombre()};
+        Object params[] = {contacto.getNombres()};
 
         StringBuffer format = messageFormat.format(params, new StringBuffer(), null);
 
