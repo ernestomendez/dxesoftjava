@@ -149,6 +149,12 @@
             <version>2.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.joda</groupId>
+            <artifactId>joda-convert</artifactId>
+            <version>1.7</version>
+        </dependency>
+
         <!-- Jadira time-->
         <dependency>
             <groupId>org.jadira.usertype</groupId>

@@ -16,7 +16,7 @@
     <jpa:repositories base-package="mx.com.oxsoftware.dxesoft.model.repositories"/>
 
     <context:annotation-config/>
-    <context:component-scan base-package="mx.com.oxsoftware.dxesoft.model"/>
+    <!--<context:component-scan base-package="mx.com.oxsoftware.dxesoft.model"/>-->
 
     <!--May needed to inject the entity manager into the factory bean-->
     <!--<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>-->
@@ -64,7 +64,7 @@
         </property>
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <!--<tx:annotation-driven transaction-manager="transactionManager" />-->
 
     <!--<jee:jndi-lookup jndi-name="jdbc/dxesoft" id="dataSource"-->
                      <!--expected-type="javax.sql.DataSource"/>-->

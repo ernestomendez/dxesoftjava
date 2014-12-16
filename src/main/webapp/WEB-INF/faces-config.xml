@@ -24,5 +24,14 @@
             <var>error_msg</var>
         </resource-bundle>
     </application>
+
+    <!--<converter>-->
+        <!--<converter-id>org.joda.ext.jsf.converter.DateTime</converter-id>-->
+        <!--<converter-class>org.joda.ext.jsf.converter.DateTimeConverter</converter-class>-->
+    <!--</converter>-->
+    <converter>
+        <converter-id>mx.com.oxsoftware.dxesoft.utils.jsfConverters.JodaDateConverter</converter-id>
+        <converter-class>mx.com.oxsoftware.dxesoft.utils.jsfConverters.JodaDateConverter</converter-class>
+    </converter>
   
 </faces-config>

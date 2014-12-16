@@ -9,67 +9,278 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/layout/dxesoft_layout.xhtml">
-        <ui:define name="dxesoft_content">
-            <h:form>
-                <div class="ContentSideSections">
-                    <div class="Content100 overHidden TextShadow">
+<ui:composition template="/layout/dxesoft_layout.xhtml">
+    <ui:define name="dxesoft_content">
+        <h:form>
+            <div class="ContentSideSections">
+                <div class="Content100 overHidden TextShadow">
                         <span class="fontSize30 TextShadow titleColor mediumFont marginBottom20 dispBlock">
                             <h:outputFormat value="#{contact_msg['contact.register']}">
                                 <f:param value="#{contact_msg['contact']}"/>
                             </h:outputFormat>
                         </span>
+                </div>
+            </div>
+            <div class="ContentSideForm">
+                <p:growl id="messages"/>
+
+                <div class="ui-grid ui-grid-responsive">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-6">
+
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.nombres']}:"/>
+                                </div>
+                                <div class="ui-grid-col-7">
+                                    <p:inputText id="contacto_nombres" value="#{contactoMB.contacto.nombres}" size="54"
+                                                 maxlength="200"/>
+                                </div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-panelgrid-cell ui-grid-col-6">
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.apellido.paterno']}: "/>
+                                </div>
+                                <div class="ui-grid-col-3">
+                                    <p:inputText id="contact_paterno" value="#{contactoMB.contacto.apellidoPaterno}"/>
+                                </div>
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.apellido.materno']}: "/>
+                                </div>
+                                <div class="ui-grid-col-3">
+                                    <p:inputText id="contact_materno" value="#{contactoMB.contacto.apellidoMaterno}"/>
+                                </div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-panelgrid-cell ui-grid-col-6">
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.titulo']}: "/>
+                                </div>
+                                <div class="ui-grid-col-3">
+                                    <p:inputText id="contact_titulo" value="#{contactoMB.contacto.titulo}"/>
+                                </div>
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.RFC']}: "/>
+                                </div>
+                                <div class="ui-grid-col-3">
+                                    <p:inputText id="contact_rfc" value="#{contactoMB.contacto.rfc}"/>
+                                </div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-panelgrid-cell ui-grid-col-6">
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.genero']}: "/>
+                                </div>
+                                <div class="ui-grid-col-3">
+                                    <p:selectOneMenu id="contact_gender" value="#{contactoMB.contacto.genero}">
+                                        <f:selectItems value="#{contactoMB.genders}"
+                                                       var="genderItem"
+                                                       itemValue="#{genderItem}"
+                                                       itemLabel="#{dxesoft_msg[genderItem.label]}"/>
+                                    </p:selectOneMenu>
+                                </div>
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.birthdate']}: "/>
+                                </div>
+                                <div class="ui-grid-col-3">
+                                    <p:calendar id="contact_birthdate" value="#{contactoMB.contacto.fechaNacimiento}" pattern="dd/MM/yyyy"
+                                                mask="true"
+                                                size="16"
+                                                showOn="button"
+                                                mode="popup">
+                                        <f:converter converterId="mx.com.oxsoftware.dxesoft.utils.jsfConverters.JodaDateConverter"/>
+                                    </p:calendar>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-panelgrid-cell ui-grid-col-6">
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-6">
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.phone.label']}: "/>
+                                </div>
+                                <div class="ui-grid-col-3">
+                                    <p:inputMask id="contact_phone1" value="#{contactoMB.phone1}" mask="(999) 999-9999? x9999"/>
+                                </div>
+                                <div class="ui-grid-col-1">
+                                    <p:outputLabel value="#{contact_msg['contact.phone.type']}: "/>
+                                </div>
+                                <div class="ui-grid-col-3">
+                                    <p:selectOneMenu id="contact_phone1_type" value="#{contactoMB.phoneType1}">
+                                        <f:selectItems value="#{contactoMB.phoneTypes}"
+                                                       var="phoneType1Item"
+                                                       itemValue="#{phoneType1Item}"
+                                                       itemLabel="#{dxesoft_msg[phoneType1Item.label]}"/>
+                                    </p:selectOneMenu>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="ContentSideForm">
-                    <p:growl id="messages"/>
-                    <p:panelGrid columns="1" layout="grid" >
-                        <p:outputLabel value="#{contact_msg['contact.nombre']} "/>
-                        <p:inputText id="it_contacto_nombres" value="#{contactoMB.contacto.nombres}" />
-                        <p:watermark value="#{contact_msg['contact.nombres']} " for="it_contacto_nombres"/>
-                        <p:panelGrid columns="4" layout="grid">
-                            <p:inputText id="it_contact_paterno" value="#{contactoMB.contacto.apellidoPaterno}"/>
-                            <p:watermark value="#{contact_msg['contact.apellido.paterno']}" for="it_contact_paterno"/>
-                            <p:inputText id="it_contact_materno" value="#{contactoMB.contacto.apellidoMaterno}"/>
-                            <p:watermark value="#{contact_msg['contact.apellido.materno']}" for="it_contact_materno"/>
-
-                        </p:panelGrid>
-                    </p:panelGrid>
-                    <!--<div class="ui-grid ui-grid-responsive">-->
-                    <!--<div class="ui-grid ui-grid-fixed">-->
-                    <div class="ui-grid ui-grid-fixed ui-grid-responsive">
+                <div class="ui-grid-row">
+                    <div class="ui-panelgrid-cell ui-grid-col-6">
+                        <br/>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-6">
                         <div class="ui-grid-row">
-                            <div class="ui-grid-col-5">
-                                <p:outputLabel value="#{contact_msg['contact.nombre']}" style="width: 200px"/>
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.phone.label']}: "/>
                             </div>
-                        </div>
-                        <div class="ui-grid-row">
-                            <div class="ui-grid-col-5">
-                                <p:inputText id="contacto_nombres" value="#{contactoMB.contacto.nombres}" />
-                                <p:watermark value="#{contact_msg['contact.nombres']} " for="contacto_nombres"/>
-                            </div>
-                        </div>
-                        <div class="ui-grid-row">
-                            <div class="ui-panelgrid-cell ui-grid-col-5"></div>
-                        </div>
-                        <div class="ui-grid-row">
-                            <div class="ui-grid-col-2">
-                                <p:inputText id="contact_paterno" value="#{contactoMB.contacto.apellidoPaterno}"/>
-                                <p:watermark value="#{contact_msg['contact.apellido.paterno']}" for="contact_paterno"/>
+                            <div class="ui-grid-col-3">
+                                <p:inputMask id="contact_phone2" value="#{contactoMB.phone2}" mask="(999) 999-9999? x9999"/>
                             </div>
                             <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.phone.type']}: "/>
                             </div>
-                            <div class="ui-grid-col-2">
-                                <p:inputText id="contact_materno" value="#{contactoMB.contacto.apellidoMaterno}"/>
-                                <p:watermark value="#{contact_msg['contact.apellido.materno']}" for="contact_materno"/>
+                            <div class="ui-grid-col-3">
+                                <p:selectOneMenu id="contact_phone2_type" value="#{contactoMB.phoneType2}">
+                                    <f:selectItems value="#{contactoMB.phoneTypes}"
+                                                   var="phoneType2Item"
+                                                   itemValue="#{phoneType2Item}"
+                                                   itemLabel="#{dxesoft_msg[phoneType2Item.label]}"/>
+                                </p:selectOneMenu>
                             </div>
                         </div>
                     </div>
                 </div>
-            </h:form>
-        </ui:define>
-    </ui:composition>
-
+                <div class="ui-grid-row">
+                    <div class="ui-panelgrid-cell ui-grid-col-6">
+                        <br/>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-6">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.phone.label']}: "/>
+                            </div>
+                            <div class="ui-grid-col-3">
+                                <p:inputMask id="contact_phone3" value="#{contactoMB.phone3}" mask="(999) 999-9999? x9999"/>
+                            </div>
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.phone.type']}: "/>
+                            </div>
+                            <div class="ui-grid-col-3">
+                                <p:selectOneMenu id="contact_phone3_type" value="#{contactoMB.phoneType3}">
+                                    <f:selectItems value="#{contactoMB.phoneTypes}"
+                                                   var="phoneType3Item"
+                                                   itemValue="#{phoneType3Item}"
+                                                   itemLabel="#{dxesoft_msg[phoneType3Item.label]}"/>
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-panelgrid-cell ui-grid-col-6">
+                        <br/>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-6">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.email.label']}: "/>
+                            </div>
+                            <div class="ui-grid-col-3">
+                                <p:inputText id="contact_email1" value="#{contactoMB.email1}" />
+                            </div>
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.email.type']}: "/>
+                            </div>
+                            <div class="ui-grid-col-3">
+                                <p:selectOneMenu id="contact_email1_type" value="#{contactoMB.emailType1}">
+                                    <f:selectItems value="#{contactoMB.emailTypes}"
+                                                   var="emailType1Item"
+                                                   itemValue="#{emailType1Item}"
+                                                   itemLabel="#{dxesoft_msg[emailType1Item.label]}"/>
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-panelgrid-cell ui-grid-col-6">
+                        <br/>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-6">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.email.label']}: "/>
+                            </div>
+                            <div class="ui-grid-col-3">
+                                <p:inputText id="contact_email2" value="#{contactoMB.email2}" />
+                            </div>
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.email.type']}: "/>
+                            </div>
+                            <div class="ui-grid-col-3">
+                                <p:selectOneMenu id="contact_email2_type" value="#{contactoMB.emailType2}">
+                                    <f:selectItems value="#{contactoMB.emailTypes}"
+                                                   var="emailType2Item"
+                                                   itemValue="#{emailType2Item}"
+                                                   itemLabel="#{dxesoft_msg[emailType2Item.label]}"/>
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-panelgrid-cell ui-grid-col-6">
+                        <br/>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-6">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.email.label']}: "/>
+                            </div>
+                            <div class="ui-grid-col-3">
+                                <p:inputText id="contact_email3" value="#{contactoMB.email3}" />
+                            </div>
+                            <div class="ui-grid-col-1">
+                                <p:outputLabel value="#{contact_msg['contact.email.type']}: "/>
+                            </div>
+                            <div class="ui-grid-col-3">
+                                <p:selectOneMenu id="contact_email3_type" value="#{contactoMB.emailType3}">
+                                    <f:selectItems value="#{contactoMB.emailTypes}"
+                                                   var="emailType3Item"
+                                                   itemValue="#{emailType3Item}"
+                                                   itemLabel="#{dxesoft_msg[emailType3Item.label]}"/>
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p:commandButton value="#{dxesoft_msg['dxesoft.add']}" action="#{contactoMB.addContact}" update="messages"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
 
 
 </html>
